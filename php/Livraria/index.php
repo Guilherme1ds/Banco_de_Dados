@@ -46,4 +46,6 @@ if ($result = $mysqli->query('SELECT * FROM Livros ORDER BY' . $column . '' . $s
             </table>
         </body>
     </html>
+    <?php $result->free();
 }
+?>
