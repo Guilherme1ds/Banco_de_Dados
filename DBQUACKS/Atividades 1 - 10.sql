@@ -1,0 +1,35 @@
+-- Atividade 1 --
+SHOW TABLES;
+
+-- Atividade 2 --
+DESCRIBE DUCKS;
+
+-- Atividade 3 --
+SELECT * FROM DUCKS;
+
+-- Atividade 4 --
+SELECT * FROM DUCKS
+WHERE AGE <= 2;
+
+-- Atividade 5 --
+SELECT * FROM DUCKS
+ORDER BY AGE;
+
+-- Atividade 6 --
+SELECT * FROM DUCKS 
+ORDER BY AGE LIMIT 3;
+
+-- Atividade 7 --
+SELECT NAME, (AGE *12) AS MESES
+FROM DUCKS;
+
+-- Atividade 8 --
+SELECT DISTINCT SPECIES FROM DUCKS;
+
+-- Atividade 9 --
+SELECT * FROM DUCK_SURVEYS 
+USING SAMPLE 10;
+
+-- Atividade 10 --
+SELECT COUNT(ID), AVG(AGE), MIN(AGE), MAX(AGE) 
+FROM DUCKS;
