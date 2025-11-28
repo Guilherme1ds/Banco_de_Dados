@@ -84,6 +84,8 @@ VALUES ('João Silva', '1990-09-15', '987.654.321-00', 'Av. Brasil, 500');
 SELECT * FROM Clientes;
 
 INSERT INTO Veiculos (modelo, marca, ano, cor)
+VALUES ('K', 'Ford', '2020', 'Vermelho');
+INSERT INTO Veiculos (modelo, marca, ano, cor)
 VALUES ('Civic', 'Honda', 2018, 'Prata');
 
 SELECT * FROM Veiculos;
@@ -95,6 +97,8 @@ SELECT * FROM Servico;
 
 INSERT INTO OS (prazo_inicial, descricao, preco_os, prazo_final, id_veiculo, id_cliente, id_mecanico, id_peca, id_servico)
 VALUES ('2025-01-10', 'Revisão completa do veículo', 480.00, '2025-01-12', 1, 1, 1, 1, 1);
+INSERT INTO OS (prazo_inicial, descricao, preco_os, prazo_final, id_veiculo, id_cliente, id_mecanico, id_peca, id_servico)
+VALUES ('2025-11-25', 'Verificação e reparo de freios', 550.50, '2025-11-28', 2, 2, 2, 2, 2);
 
 SELECT * FROM OS;
 
@@ -102,3 +106,19 @@ INSERT INTO possuem (id_cliente, id_veiculo)
 VALUES (1, 1);
 
 SELECT * FROM possuem;
+
+-- Atividade --
+
+-- 1. SELECT
+-- Selecione todos os veículos cadastrados que são da marca "Ford"
+SELECT * FROM Veiculos WHERE marca = "Ford";
+
+-- Liste todos os clientes que abriram uma Ordem de Serviço (OS) nos últimos 6 meses
+SELECT DISTINCT
+    C.nome_cliente
+FROM
+    Clientes C
+JOIN
+    OS ON C.id_cliente = OS.id_cliente
+WHERE
+    OS.prazo_inicial >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH);
